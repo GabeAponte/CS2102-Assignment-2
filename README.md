@@ -1,0 +1,20 @@
+# CS2102-Assignment-2
+Problem Statement
+This week, we extend your initial classes for athletic competitions so you can practice programming with lists in Java. We also add a new kind of event so you can practice working with abstract classes.
+1. Modify SkiingResult so that the times of each lap are stored in a LinkedList instead of five separate doubles. The constructor will still take five doubles, but they will be added to a LinkedList inside the constructor.
+2. Modify pointsEarned in SkiingResult to now total the points across all laps in the list. If the list is empty, return zero points. Be sure to use loops!
+3. Another Nordic event in the Olympics is called the Mass Start event. This is similar to a marathon for runners; all the skiers assemble en masse and the first skier to cross the finish line wins. Add a class MassStartResult to your project. Like a SkiingResult, a MassStartResult has five laps and a finishing position, and the pointsEarned is the total time across all five laps. Unlike a SkiingResult, a MassStartResult also has a starting position. MassStartResult should also be an IEvent.
+4. Create abstract classes as needed to share appropriate details between SkiingResult and MassStartResult. You may use whatever names you wish for these classes.
+
+Do NOT add a MassStartResult field to your Athlete or FinalResult classes. We are simply creating the ability to have a new kind of event, but the athletes in this assignment will not participate in it. Larger projects often have classes that don't get used in all scenarios.
+
+5. Add a name field (type String) to the Athlete class. Remember to also modify your constructor.
+6. Create a class Competition, which contains an integer indicating the (non-negative) number of ShootingRounds to be used in this competition. It should also contain a LinkedList of Athletes.
+7. Modify your ShootingResult class to now contain a list of ShootingRounds (rather than a fixed four rounds). We assume the rounds are in order (the first round went first, the second went second, etc).
+8. Modify pointsEarned in ShootingResult to now total the points across all rounds in the list. If the list is empty, return zero points. Be sure to use loops!
+9. Shooting rounds can take two forms: prone or standing. Add a boolean field to your ShootingRound class indicating whether or not the round is standing. Remember to also modify your constructor.
+10. Write a method called bestRoundByType in the ShootingResult class to return the best round in the list. The method should take a boolean as a parameter to indicate if we want the best prone (false) or the best standing (true) round. If there is a tie between the top two rounds, just return one of the rounds. If there are no rounds of the specified type, return null.
+11. Within a single competition, all of the athletes should have completed the same number of rounds in the Shooting event. Write a method in the Competition class called shootingDNF (for "did not finish"), which produces a LinkedList of the names of the Athletes in the competition whose list of ShootingRounds is less than the number of rounds stored in the Competition class. If there are no Athletes who meet these criteria, the method should return an empty linked list.
+The names of the Athletes should occur in the same order in the returned list as they were in the list within the Competition.
+12. Write a method in the Competition class called finalScoreForAthlete, which takes the name of an athlete and returns the final score that the athlete earned in the biathlon. You may assume that no two athletes have the same name. You may also assume that the athlete name given is in the competition (we'll talk about how to handle error cases later in the course).
+13. Write a method in the Competition class called anyImprovement, which takes another Competition as input and returns true if any of the athletes in "this" competition had a better final score than they had in the given competition. You may assume that both competitions have the same athletes, but the athletes may appear in different orders within the athlete lists in both competitions.
